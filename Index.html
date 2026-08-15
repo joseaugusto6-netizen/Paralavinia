@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Para Lavínia ❤️</title>
+
+    <style>
+
+        :root {
+            --rosa: #ff5c99;
+            --rosa-claro: #ffb6d2;
+            --roxo: #3b123d;
+            --fundo: #10000f;
+            --card: rgba(255,255,255,0.09);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            color: white;
+
+            background:
+                radial-gradient(
+                    circle at top,
+                    var(--roxo),
+                    var(--fundo) 70%
+                );
+
+            overflow-x: hidden;
+        }
+
+
+        /* =========================
+           FUNDO
+        ========================= */
+
+        #fundo {
+            position: fixed;
+            inset: 0;
+
+            overflow: hidden;
+
+            pointer-events: none;
+
+            z-index: -1;
+        }
+
+        .coracao {
+            position: absolute;
+
+            bottom: -50px;
+
+            animation:
+                subir linear infinite;
+
+            opacity: .7;
+        }
+
+        @keyframes subir {
+
+            0% {
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+
+                opacity: 0;
+            }
+
+            20% {
+                opacity: .8;
+            }
+
+            100% {
+                transform:
+                    translateY(-110vh)
+                    rotate(360deg);
+
+                opacity: 0;
+            }
+        }
+
+
+        /* =========================
+           TELA INICIAL
+        ========================= */
+
+        .inicio {
+
+            min-height: 100vh;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            padding: 30px;
+        }
+
+        .inicio-gif {
+
+            width: 230px;
+
+            max-width: 80%;
+
+            border-radius: 25px;
+
+            margin-bottom: 25px;
+
+            box-shadow:
+                0 15px 40px
+                rgba(0,0,0,.35);
+
+            animation:
+                flutuar 3s ease-in-out infinite;
+        }
+
+        @keyframes flutuar {
+
+            0%,100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        .inicio h1 {
+
+            font-size:
+                clamp(42px, 10vw, 80px);
+
+            color: #ffd4e5;
+
+            margin-bottom: 20px;
+        }
+
+        .inicio p {
+
+            max-width: 650px;
+
+            font-size: 19px;
+
+            line-height: 1.7;
+
+            color: #f8dce9;
+        }
+
+        .botao {
+
+            margin-top: 35px;
+
+            padding: 15px 30px;
+
+            border: none;
+
+            border-radius: 50px;
+
+            background: var(--rosa);
+
+            color: white;
+
+            font-size: 17px;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 0 25px
+                rgba(255,92,153,.4);
+
+            transition: .3s;
+        }
+
+        .botao:hover {
+
+            transform: scale(1.08);
+        }
+
+
+        /* =========================
+           CARTAS
+        ========================= */
+
+        .conteudo {
+
+            max-width: 850px;
+
+            margin: auto;
+
+            padding: 80px 20px;
+        }
+
+        .carta {
+
+            background: var(--card);
+
+            border:
+                1px solid
+                rgba(255,255,255,.14);
+
+            backdrop-filter: blur(12px);
+
+            border-radius: 30px;
+
+            padding: 35px;
+
+            margin-bottom: 65px;
+
+            box-shadow:
+                0 15px 40px
+                rgba(0,0,0,.25);
+
+            opacity: 0;
+
+            transform: translateY(50px);
+
+            transition:
+                opacity 1s,
+                transform 1s;
+        }
+
+        .carta.mostrar {
+
+            opacity: 1;
+
+            transform: translateY(0);
+        }
+
+        .carta h2 {
+
+            text-align: center;
+
+            color: var(--rosa-claro);
+
+            font-size: 29px;
+
+            margin-bottom: 25px;
+        }
+
+        .carta p {
+
+            font-size: 18px;
+
+            line-height: 1.9;
+
+            color: #f9e9f0;
+
+            margin-bottom: 18px;
+        }
+
+        .frase {
+
+            text-align: center;
+
+            font-size: 24px !important;
+
+            font-style: italic;
+
+            color: #ffd2e4 !important;
+
+            margin: 30px 0;
+        }
+
+
+        /* =========================
+           GIFS
+        ========================= */
+
+        .gif-box {
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            margin-top: 30px;
+        }
+
+        .gif-box img {
+
+            width: 210px;
+
+            max-width: 80%;
+
+            border-radius: 25px;
+
+            box-shadow:
+                0 12px 35px
+                rgba(0,0,0,.35);
+
+            transition: .3s;
+        }
+
+        .gif-box img:hover {
+
+            transform:
+                scale(1.06)
+                rotate(1deg);
+        }
+
+
+        /* =========================
+           FINAL
+        ========================= */
+
+        .final {
+
+            min-height: 100vh;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            padding: 40px 25px;
+        }
+
+        .final img {
+
+            width: 230px;
+
+            max-width: 80%;
+
+            border-radius: 25px;
+
+            margin-bottom: 25px;
+
+            box-shadow:
+                0 15px 40px
+                rgba(0,0,0,.35);
+        }
+
+        .final h2 {
+
+            font-size:
+                clamp(35px,8vw,60px);
+
+            color: #ffd1e3;
+
+            margin-bottom: 25px;
+        }
+
+        .final p {
+
+            max-width: 650px;
+
+            font-size: 20px;
+
+            line-height: 1.8;
+
+            color: #f7dce8;
+        }
+
+        .pedido {
+
+            margin-top: 35px;
+
+            font-size:
+                clamp(25px,6vw,40px);
+
+            color: var(--rosa-claro);
+
+            font-weight: bold;
+        }
+
+        .final small {
+
+            margin-top: 30px;
+
+            color: #dcb4c8;
+
+            font-size: 16px;
+
+            max-width: 550px;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+
+            text-align: center;
+
+            padding: 35px;
+
+            color: #cdaabd;
+        }
+
+
+        /* =========================
+           CELULAR
+        ========================= */
+
+        @media (max-width:600px) {
+
+            .carta {
+
+                padding: 25px 20px;
+            }
+
+            .carta p {
+
+                font-size: 16px;
+
+                line-height: 1.8;
+            }
+
+            .inicio p,
+            .final p {
+
+                font-size: 17px;
+            }
+
+            .inicio-gif,
+            .final img {
+
+                width: 190px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         FUNDO
+    ========================= -->
+
+    <div id="fundo"></div>
+
+
+    <!-- =========================
+         INÍCIO
+    ========================= -->
+
+    <section class="inicio">
+
+
+        <!-- Gatinho segurando flor -->
+
+        <img
+            class="inicio-gif"
+            src="https://media.giphy.com/media/GZIQny7CrHHsNnG1Wd/giphy.gif"
+            alt="Gatinho entregando uma flor"
+        >
+
+
+        <h1>
+            Lavínia... ❤️
+        </h1>
+
+
+        <p>
+            Eu preparei uma pequena surpresa para você.
+            Não é muita coisa, mas cada palavra aqui foi
+            escolhida pensando em você.
+        </p>
+
+
+        <button
+            class="botao"
+            onclick="abrirCarta()"
+        >
+            💌 Ler minha declaração
+        </button>
+
+    </section>
+
+
+
+    <!-- =========================
+         DECLARAÇÃO
+    ========================= -->
+
+    <main
+        class="conteudo"
+        id="carta"
+    >
+
+
+        <!-- PARTE 1 -->
+
+        <section class="carta">
+
+            <h2>
+                Desde o primeiro dia... 👀❤️
+            </h2>
+
+            <p>
+                Desde quando eu te vi pela primeira vez,
+                percebi que, em algum momento, eu faria
+                esse pedido a você.
+            </p>
+
+            <p>
+                Meu primeiro olhar para você foi logo no
+                primeiro dia de aula, quando conheci uma
+                pequena parte da pessoa que hoje estou
+                escrevendo tudo isso.
+            </p>
+
+
+            <!-- Gatinho apaixonado -->
+
+            <div class="gif-box">
+
+                <img
+                    src="https://media.giphy.com/media/8e28G54wj0yiJw9rfQ/giphy.gif"
+                    alt="Gatinho apaixonado"
+                >
+
+            </div>
+
+        </section>
+
+
+
+        <!-- PARTE 2 -->
+
+        <section class="carta">
+
+            <h2>
+                Com o tempo... 🥹
+            </h2>
+
+            <p>
+                Ao longo do tempo, fui conhecendo cada vez
+                mais você.
+            </p>
+
+            <p>
+                Houve momentos em que nós não conversamos,
+                mas percebi que, para algo acontecer e dar
+                certo, às vezes precisamos enfrentar alguns
+                obstáculos.
+            </p>
+
+            <p>
+                No meu caso, esses obstáculos foram a minha
+                timidez, o meu medo e a minha insegurança.
+            </p>
+
+            <p>
+                Mas, com o tempo, percebi que não precisava
+                deixar essas coisas me impedirem de tentar
+                conquistar algo que eu queria desde o início.
+            </p>
+
+
+            <div class="gif-box">
+
+                <img
+                    src="https://media.giphy.com/media/Ur8Pu6JxmAo8LJZSJS/giphy.gif"
+                    alt="Gatinho com coração"
+                >
+
+            </div>
+
+        </section>
+
+
+
+        <!-- PARTE 3 -->
+
+        <section class="carta">
+
+            <h2>
+                O que você significa para mim 💗
+            </h2>
+
+            <p>
+                Para mim, você não é uma simples garota.
+                Você é uma pessoa especial, alguém que eu
+                consigo imaginar ao meu lado por muito tempo.
+            </p>
+
+            <p>
+                Alguém que me faz querer mudar, melhorar
+                e ser uma pessoa melhor.
+            </p>
+
+            <p>
+                E quem sabe, a partir de hoje, podemos
+                começar uma história que dure muito mais
+                do que eu consigo imaginar.
+            </p>
+
+
+            <div class="gif-box">
+
+                <img
+                    src="https://media.giphy.com/media/6Ee25N9KcBPtSrJFVz/giphy.gif"
+                    alt="Gatinho demonstrando carinho"
+                >
+
+            </div>
+
+        </section>
+
+
+
+        <!-- PARTE 4 -->
+
+        <section class="carta">
+
+            <h2>
+                Seus detalhes... ✨
+            </h2>
+
+            <p>
+                Seus detalhes são únicos. Ninguém nesse
+                mundo tem exatamente o que você tem.
+            </p>
+
+            <p>
+                Nem a lua tem um brilho como o dos seus
+                cabelos. Seus olhos, seu sorriso, seu jeito...
+                você inteira me fez questionar:
+            </p>
+
+            <p class="frase">
+                “Será que é ela a pessoa que vai fazer
+                parte da minha vida?”
+            </p>
+
+
+            <div class="gif-box">
+
+                <img
+                    src="https://media.giphy.com/media/NthqQALlJSXP8MdzNC/giphy.gif"
+                    alt="Gatinho apaixonado com coração"
+                >
+
+            </div>
+
+        </section>
+
+
+
+        <!-- PARTE 5 -->
+
+        <section class="carta">
+
+            <h2>
+                E talvez hoje... 🌙
+            </h2>
+
+            <p>
+                Talvez hoje eu finalmente descubra a resposta.
+            </p>
+
+            <p>
+                Talvez este seja apenas o começo de uma
+                história que ainda temos muito para viver.
+            </p>
+
+            <p>
+                Talvez eu precise me esforçar mais um
+                pouquinho.
+            </p>
+
+            <p>
+                Mas uma coisa eu sei:
+                eu não queria deixar passar a oportunidade
+                de dizer o que sinto por você.
+            </p>
+
+
+            <div class="gif-box">
+
+                <img
+                    src="https://media.giphy.com/media/YZLD6EcLmptfO/giphy.gif"
+                    alt="Gatinho romântico"
+                >
+
+            </div>
+
+        </section>
+
+
+
+        <!-- PARTE 6 -->
+
+        <section class="carta">
+
+            <h2>
+                Uma última coisa... 💌
+            </h2>
+
+            <p>
+                Eu não sei exatamente o que vai acontecer
+                depois desse momento.
+            </p>
+
+            <p>
+                Só sei que eu queria que você soubesse
+                o quanto você se tornou importante para mim.
+            </p>
+
+            <p>
+                E que eu vou guardar com carinho todos
+                os momentos que fizeram eu chegar até aqui.
+            </p>
+
+
+            <div class="gif-box">
+
+                <img
+                    src="https://media.giphy.com/media/26DNbGHpjisiBmdPi/giphy.gif"
+                    alt="Gatinho dizendo eu te amo"
+                >
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         FINAL
+    ========================= -->
+
+    <section class="final">
+
+
+        <!-- GIF FINAL -->
+
+        <img
+            src="https://media.giphy.com/media/wSxNZ8sksBiV2NVOfq/giphy.gif"
+            alt="Gatinho oferecendo uma flor"
+        >
+
+
+        <h2>
+            Lavínia Lamar... ❤️
+        </h2>
+
+
+        <p>
+            Depois de tudo isso, ainda existe uma coisa
+            que eu quero te perguntar.
+        </p>
+
+
+        <div class="pedido">
+
+            Mas essa pergunta...
+            <br><br>
+
+            eu quero fazer olhando
+            nos seus olhos. ❤️
+
+        </div>
+
+
+        <small>
+
+            Então, quando chegar o momento,
+            espere só mais um pouquinho. 🥹💕
+
+        </small>
+
+    </section>
+
+
+
+    <footer>
+
+        Feito especialmente para você, Lavínia. ❤️
+
+    </footer>
+
+
+
+    <script>
+
+
+        /* =========================
+           CRIAR CORAÇÕES
+        ========================= */
+
+        const fundo =
+            document.getElementById("fundo");
+
+
+        const emojis = [
+
+            "❤️",
+            "💕",
+            "💗",
+            "💖",
+            "💘",
+            "✨",
+            "🌸"
+
+        ];
+
+
+        for (
+            let i = 0;
+            i < 40;
+            i++
+        ) {
+
+
+            const coracao =
+                document.createElement("div");
+
+
+            coracao.className =
+                "coracao";
+
+
+            coracao.innerText =
+                emojis[
+                    Math.floor(
+                        Math.random()
+                        * emojis.length
+                    )
+                ];
+
+
+            coracao.style.left =
+                Math.random() * 100 + "%";
+
+
+            coracao.style.fontSize =
+                (15 + Math.random() * 25)
+                + "px";
+
+
+            coracao.style.animationDuration =
+                (6 + Math.random() * 8)
+                + "s";
+
+
+            coracao.style.animationDelay =
+                Math.random() * 8
+                + "s";
+
+
+            fundo.appendChild(
+                coracao
+            );
+
+        }
+
+
+
+        /* =========================
+           ABRIR CARTA
+        ========================= */
+
+        function abrirCarta() {
+
+            document
+                .getElementById("carta")
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
+
+        }
+
+
+
+        /* =========================
+           ANIMAÇÃO DOS CARDS
+        ========================= */
+
+        const cartas =
+            document.querySelectorAll(
+                ".carta"
+            );
+
+
+        const observador =
+            new IntersectionObserver(
+
+                function(entries) {
+
+                    entries.forEach(
+                        function(entry) {
+
+                            if (
+                                entry.isIntersecting
+                            ) {
+
+                                entry.target
+                                    .classList
+                                    .add("mostrar");
+
+                            }
+
+                        }
+                    );
+
+                },
+
+                {
+                    threshold: 0.15
+                }
+
+            );
+
+
+        cartas.forEach(
+            function(carta) {
+
+                observador.observe(
+                    carta
+                );
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>
